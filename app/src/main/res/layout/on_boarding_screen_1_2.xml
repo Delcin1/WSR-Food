@@ -3,19 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container1"
+    tools:ignore="contentDescription"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/orange">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/fpos_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/delivery_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="130dp"
@@ -23,12 +24,12 @@
         android:text=""
         android:textColor="@color/black"
         android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintBottom_toBottomOf="@+id/fpos_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/work_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/nunito_sans"
@@ -38,17 +39,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/delivery_text" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/spos_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/spos_drawable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="400dp"
@@ -57,7 +58,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/welcome_text"
         android:layout_width="160dp"
         android:layout_height="71dp"
         android:layout_marginStart="20dp"
@@ -67,11 +68,11 @@
         android:text=""
         android:textColor="@color/black"
         android:textSize="44sp"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+        app:layout_constraintStart_toStartOf="@+id/spos_drawable"
+        app:layout_constraintTop_toTopOf="@+id/spos_drawable" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/spos_name"
         android:layout_width="163dp"
         android:layout_height="68dp"
         android:layout_marginStart="16dp"
@@ -81,29 +82,30 @@
         android:text=""
         android:textColor="@color/black"
         android:textSize="44sp"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintStart_toStartOf="@+id/welcome_text"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_text" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signin_btn"
         style="@style/Widget.Material3.Button"
-        android:layout_width="177dp"
+        android:layout_width="150dp"
         android:layout_height="84dp"
         android:layout_marginStart="15dp"
         android:layout_marginBottom="76dp"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/italianno"
+        android:scaleX="0"
         android:text=""
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:scaleX="0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/signup_btn"
         style="@style/Widget.Material3.Button"
-        android:layout_width="177dp"
+        android:layout_width="150dp"
         android:layout_height="84dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="76dp"
@@ -114,5 +116,6 @@
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>
