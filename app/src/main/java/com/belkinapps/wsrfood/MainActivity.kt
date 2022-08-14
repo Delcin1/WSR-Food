@@ -1,14 +1,19 @@
 package com.belkinapps.wsrfood
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
-    private var isLogged = false
+    var pref: SharedPreferences? = null
+    var isLogged = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        pref = getSharedPreferences("TABLE", Context.MODE_PRIVATE)
+        isLogged = pref?.getBoolean("isLogged", false)!!
         if (isLogged) {
             setContentView(R.layout.activity_main)
         } else {
