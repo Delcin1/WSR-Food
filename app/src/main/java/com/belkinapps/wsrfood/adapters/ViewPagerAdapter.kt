@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.belkinapps.wsrfood.activities.SignInActivity
+import com.belkinapps.wsrfood.activities.SignUpActivity
 
 class ViewPagerAdapter : RecyclerView.Adapter<PagerVH>() {
 
@@ -33,12 +35,12 @@ class ViewPagerAdapter : RecyclerView.Adapter<PagerVH>() {
             holder.spos_name.setText(R.string.app_name)
             holder.signin_btn.scaleX = 1F
             holder.signin_btn.setOnClickListener{
-                val myIntent = Intent(context,SignInActivity::class.java)
+                val myIntent = Intent(context, SignInActivity::class.java)
                 holder.itemView.getContext().startActivity(myIntent)
             }
             holder.signup_btn.scaleX = 1F
             holder.signup_btn.setOnClickListener{
-                val myIntent = Intent(context,SignUpActivity::class.java)
+                val myIntent = Intent(context, SignUpActivity::class.java)
                 holder.itemView.getContext().startActivity(myIntent)
             }
             holder.signin_btn.setText(R.string.sign_in)

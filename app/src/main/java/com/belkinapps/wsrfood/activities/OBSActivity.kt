@@ -1,8 +1,9 @@
-package com.belkinapps.wsrfood
+package com.belkinapps.wsrfood.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.belkinapps.wsrfood.ViewPagerAdapter
 import com.belkinapps.wsrfood.databinding.OnBoardingScreenBinding
 import com.google.android.material.tabs.TabLayoutMediator
 

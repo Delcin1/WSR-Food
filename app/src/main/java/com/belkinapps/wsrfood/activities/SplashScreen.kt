@@ -1,10 +1,11 @@
-package com.belkinapps.wsrfood
+package com.belkinapps.wsrfood.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.belkinapps.wsrfood.R
 
 
 class SplashScreen : AppCompatActivity() {

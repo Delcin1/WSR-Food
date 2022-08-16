@@ -1,4 +1,4 @@
-package com.belkinapps.wsrfood
+package com.belkinapps.wsrfood.activities
 
 import android.content.Context
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.belkinapps.wsrfood.App
 import com.belkinapps.wsrfood.data.remote.FoodApi
 import com.belkinapps.wsrfood.data.requests.LoginRequest
 import com.belkinapps.wsrfood.data.requests.RegisterRequest
