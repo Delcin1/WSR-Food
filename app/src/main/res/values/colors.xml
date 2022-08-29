@@ -11,4 +11,6 @@
     <color name="sign_text">#F6F6F9</color>
     <color name="orange">#FF240C</color>
     <color name="card_view_bg">#F3F3F3</color>
+    <color name="empty">#00000000</color>
+    <color name="tab_text_color">#9A9A9D</color>
 </resources>

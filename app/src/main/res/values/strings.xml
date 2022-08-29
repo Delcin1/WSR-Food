@@ -16,7 +16,10 @@
     <string name="forgot_pass">Forgot password?</string>
     <string name="password">Password</string>
     <string name="email">E-mail</string>
-
+    <string name="search">Search</string>
+    <string name="results">Results</string>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="adress">Выберите адрес доставки</string>
+    <string name="skip_auth">Skip Authorization</string>
 </resources>

@@ -136,7 +136,7 @@
             android:layout_width="155dp"
             android:layout_height="155dp"
             android:layout_gravity="center"
-            app:srcCompat="@mipmap/cooking_icon" />
+            app:srcCompat="@drawable/cooking_icon" />
 
     </com.google.android.material.card.MaterialCardView>
 

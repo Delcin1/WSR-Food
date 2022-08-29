@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ss_bg" />
+        app:srcCompat="@drawable/ss_bg" />
 
     <ImageView
         android:id="@+id/ss_ellipse"
@@ -37,7 +37,7 @@
         app:layout_constraintBottom_toTopOf="@+id/ss_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@mipmap/cooking_icon" />
+        app:srcCompat="@drawable/cooking_icon" />
 
     <TextView
         android:id="@+id/ss_name"

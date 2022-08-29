@@ -6,23 +6,35 @@
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable-v24/ic_splashscreen_bg.xml" value="0.2355" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/background_splashscreen.xml" value="0.219" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/default_dot.xml" value="0.2125" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/gradient.xml" value="0.1625" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_ellipse_ss.xml" value="0.1385" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_history.xml" value="0.1625" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_home.xml" value="0.1625" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_ililustration_1.xml" value="0.2" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_illustration.xml" value="0.2555" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_item_card.xml" value="0.2545" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_navigation.xml" value="0.1625" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_rectangle_2.xml" value="0.2555" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_rectangle_3.xml" value="0.2405" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_rectangle_473.xml" value="0.1385" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_search.xml" value="0.1625" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_search_bg.xml" value="0.178" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_shopping_cart.xml" value="0.1625" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_splashscreen_bg.xml" value="0.2265" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/ic_user.xml" value="0.1625" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/search_view_bg.xml" value="0.119" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/selected_dot.xml" value="0.2125" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/drawable/tab_selector.xml" value="0.2125" />
-        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/activity_sign_in.xml" value="0.19519927536231885" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/activity_splash_screen.xml" value="0.176" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/empty_page.xml" value="0.125" />
-        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/on_boarding_screen.xml" value="0.1" />
-        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/on_boarding_screen_1_2.xml" value="0.2" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/item.xml" value="0.36796536796536794" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/menu.xml" value="0.20427350427350427" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/on_boarding_screen.xml" value="0.2" />
+        <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/on_boarding_screen_1_2.xml" value="0.152" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/on_boarding_screen_2_2.xml" value="0.264" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/signin_screen.xml" value="0.264" />
         <entry key="..\:/Users/naklz/AndroidStudioProjects/WSRFood2/app/src/main/res/layout/signup_screen.xml" value="0.2" />

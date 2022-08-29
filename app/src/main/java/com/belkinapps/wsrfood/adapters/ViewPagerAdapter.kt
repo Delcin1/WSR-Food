@@ -2,6 +2,7 @@ package com.belkinapps.wsrfood
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +10,19 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.belkinapps.wsrfood.activities.MainActivity
 import com.belkinapps.wsrfood.activities.SignInActivity
 import com.belkinapps.wsrfood.activities.SignUpActivity
 
-class ViewPagerAdapter : RecyclerView.Adapter<PagerVH>() {
+class ViewPagerAdapter (var isConnected: Boolean, var pref: SharedPreferences?) : RecyclerView.Adapter<PagerVH>() {
+
+    var isLogged = false
+
+    fun SaveState(state: Boolean) {
+        val editor = pref?.edit()
+        editor?.putBoolean("isLogged", state)
+        editor?.apply()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerVH =
         PagerVH(LayoutInflater.from(parent.context).inflate(R.layout.on_boarding_screen_1_2, parent, false))
@@ -45,6 +55,15 @@ class ViewPagerAdapter : RecyclerView.Adapter<PagerVH>() {
             }
             holder.signin_btn.setText(R.string.sign_in)
             holder.signup_btn.setText(R.string.sign_up)
+            if (isConnected) {
+                holder.skip_auth.visibility = View.VISIBLE
+                holder.skip_auth.setOnClickListener {
+                    isLogged = true
+                    SaveState(isLogged)
+                    val myIntent = Intent(context, MainActivity::class.java)
+                    holder.itemView.getContext().startActivity(myIntent)
+                }
+            }
 
         }
     }
@@ -61,4 +80,5 @@ class PagerVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val spos_name: TextView = itemView.findViewById(R.id.spos_name)
     val signin_btn: Button = itemView.findViewById(R.id.signin_btn)
     val signup_btn: Button = itemView.findViewById(R.id.signup_btn)
+    val skip_auth: TextView = itemView.findViewById(R.id.skip_auth)
 }

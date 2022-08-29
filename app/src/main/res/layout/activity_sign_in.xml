@@ -109,8 +109,8 @@
             android:id="@+id/si_cooking"
             android:layout_width="155dp"
             android:layout_height="155dp"
-            app:srcCompat="@mipmap/cooking_icon"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/cooking_icon" />
 
     </com.google.android.material.card.MaterialCardView>
 
