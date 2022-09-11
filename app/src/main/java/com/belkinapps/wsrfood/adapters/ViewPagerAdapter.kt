@@ -55,7 +55,7 @@ class ViewPagerAdapter (var isConnected: Boolean, var pref: SharedPreferences?) 
             }
             holder.signin_btn.setText(R.string.sign_in)
             holder.signup_btn.setText(R.string.sign_up)
-            if (isConnected) {
+            if (!isConnected) {
                 holder.skip_auth.visibility = View.VISIBLE
                 holder.skip_auth.setOnClickListener {
                     isLogged = true

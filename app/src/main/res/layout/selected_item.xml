@@ -1,65 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/item"
-        android:layout_width="160dp"
-        android:layout_height="215dp"
-        android:layout_marginTop="40dp"
-        android:orientation="vertical"
-        app:cardBackgroundColor="@color/white"
-        app:cardElevation="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView2">
-
-
-        <TextView
-            android:id="@+id/nameDish"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:fontFamily="@font/nunito_sans"
-            android:gravity="center"
-            android:text="TextView"
-            android:textColor="@color/black" />
-
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/price"
-            android:layout_gravity="bottom|center_horizontal"
-            android:layout_marginBottom="15dp"
-            android:text="TextView" />
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/dishIcon_card"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.CardView3"
-        app:cardBackgroundColor="@color/white"
-        android:layout_marginTop="-40dp"
-        app:layout_constraintEnd_toEndOf="@+id/item"
-        app:layout_constraintStart_toStartOf="@+id/item"
-        app:layout_constraintTop_toTopOf="@+id/item">
-
-
-        <ImageView
-            android:id="@+id/dishIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:srcCompat="@drawable/response" />
-    </com.google.android.material.card.MaterialCardView>
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/selected_item"
@@ -200,6 +144,5 @@
             android:layout_marginRight="39dp"
             android:layout_marginBottom="22dp"/>
     </com.google.android.material.card.MaterialCardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

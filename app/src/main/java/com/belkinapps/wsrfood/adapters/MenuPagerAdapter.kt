@@ -3,6 +3,7 @@ package com.belkinapps.wsrfood.adapters
 import GridSpacingItemDecoration
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,7 @@ import androidx.recyclerview.widget.*
 import com.belkinapps.wsrfood.R
 import com.belkinapps.wsrfood.data.responses.Item
 
-class MenuPagerAdapter(var items: MutableList<Item>) : RecyclerView.Adapter<MenuPagerVH>() {
+class MenuPagerAdapter(var items: MutableList<Item>, var pref: SharedPreferences?) : RecyclerView.Adapter<MenuPagerVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuPagerVH =
         MenuPagerVH(LayoutInflater.from(parent.context).inflate(R.layout.menu, parent, false))
@@ -31,7 +32,7 @@ class MenuPagerAdapter(var items: MutableList<Item>) : RecyclerView.Adapter<Menu
                     foods.add(items[i])
                 }
             }
-            holder.menuRecycler.adapter = MenuRecyclerAdapter(foods)
+            holder.menuRecycler.adapter = MenuRecyclerAdapter(foods, pref)
         }
 
         if(position == 1) {
@@ -43,7 +44,7 @@ class MenuPagerAdapter(var items: MutableList<Item>) : RecyclerView.Adapter<Menu
                     drinks.add(items[i])
                 }
             }
-            holder.menuRecycler.adapter = MenuRecyclerAdapter(drinks)
+            holder.menuRecycler.adapter = MenuRecyclerAdapter(drinks, pref)
         }
 
         if (position == 2) {
@@ -55,7 +56,7 @@ class MenuPagerAdapter(var items: MutableList<Item>) : RecyclerView.Adapter<Menu
                     snacks.add(items[i])
                 }
             }
-            holder.menuRecycler.adapter = MenuRecyclerAdapter(snacks)
+            holder.menuRecycler.adapter = MenuRecyclerAdapter(snacks, pref)
         }
 
         if (position == 3) {
@@ -67,7 +68,7 @@ class MenuPagerAdapter(var items: MutableList<Item>) : RecyclerView.Adapter<Menu
                     sauces.add(items[i])
                 }
             }
-            holder.menuRecycler.adapter = MenuRecyclerAdapter(sauces)
+            holder.menuRecycler.adapter = MenuRecyclerAdapter(sauces, pref)
         }
     }
 

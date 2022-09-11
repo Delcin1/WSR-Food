@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     )
     private lateinit var binding: ActivityMainBinding
     var dishesList: MutableList<Item> = mutableListOf()
-    var menu_search_adapter = MenuRecyclerAdapter(dishesList)
+    var menu_search_adapter = MenuRecyclerAdapter(dishesList, pref)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         if (isLogged) {
             val view = binding.root
             setContentView(view)
-            view_pager2.adapter = MenuPagerAdapter(dishesList)
+            view_pager2.adapter = MenuPagerAdapter(dishesList, pref)
             TabLayoutMediator(tabLayout, view_pager2) { tab, position ->
                 tab.text = tabTitles[position]
             }.attach()
@@ -91,6 +91,7 @@ class MainActivity : AppCompatActivity() {
             tabLayout.visibility = View.VISIBLE
             results_text.visibility = View.INVISIBLE
             view_pager2.visibility = View.VISIBLE
+            searchBar.text.clear()
         }
 
         search_menu.layoutManager = GridLayoutManager(applicationContext, 2)
@@ -124,7 +125,33 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+        val orderBtn = binding.mainCart
+        orderBtn.setOnClickListener {
+            val intent = Intent(this, OrderActivity::class.java)
+            startActivity(intent)
+        }
 
+        val historyBtn = binding.mainCart
+        orderBtn.setOnClickListener {
+            val intent = Intent(this, OrderActivity::class.java)
+            startActivity(intent)
+        }
+
+        var adressField = binding.adressField
+        adressField.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                SaveAdress(adressField.text.toString())
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
 
     }
 
@@ -160,6 +187,12 @@ class MainActivity : AppCompatActivity() {
             return Gson().fromJson(listJson, type)
         }
         return mutableListOf()
+    }
+
+    fun SaveAdress(adress: String) {
+        val editor = pref?.edit()
+        editor?.putString("adress", adress)
+        editor?.apply()
     }
 
     fun SaveState(state: Boolean) {

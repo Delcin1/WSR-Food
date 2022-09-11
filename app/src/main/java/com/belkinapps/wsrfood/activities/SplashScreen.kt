@@ -16,6 +16,7 @@ import androidx.core.content.edit
 import com.belkinapps.wsrfood.App
 import com.belkinapps.wsrfood.R
 import com.belkinapps.wsrfood.data.remote.FoodApi
+import com.belkinapps.wsrfood.data.requests.DishesOrder
 import com.belkinapps.wsrfood.data.requests.LoginRequest
 import com.belkinapps.wsrfood.data.responses.Item
 import com.belkinapps.wsrfood.data.responses.VersionResponse
@@ -43,6 +44,8 @@ class SplashScreen : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         pref = getSharedPreferences("TABLE", Context.MODE_PRIVATE)
+        var dishesOrder: MutableList<DishesOrder> = mutableListOf()
+        SaveData2(dishesOrder)
         var versions: List<String> = listOf()
         var version = "1.01"
         val empty_list = listOf<Item>()
@@ -97,6 +100,13 @@ class SplashScreen : AppCompatActivity() {
         editorList?.putList("menu", menu)
         val editor = pref?.edit()
         editor?.putString("version", version)
+        editor?.apply()
+    }
+
+    fun SaveData2(dishesOrder: MutableList<DishesOrder>) {
+        val editorList = pref
+        editorList?.putList("DishesOrder", dishesOrder)
+        val editor = pref?.edit()
         editor?.apply()
     }
 

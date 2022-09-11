@@ -9,8 +9,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray_bg">#EAEAEA</color>
     <color name="sign_text">#F6F6F9</color>
-    <color name="orange">#FF240C</color>
+    <color name="orange">#FA4A0C</color>
     <color name="card_view_bg">#F3F3F3</color>
     <color name="empty">#00000000</color>
     <color name="tab_text_color">#9A9A9D</color>
+    <color name="price">#FA4A0C</color>
+    <color name="progress_bar">#FF240C</color>
+    <color name="counter">#9A9A9D</color>
+    <color name="extra_item_price">#C4C4C4</color>
 </resources>
