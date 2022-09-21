@@ -41,13 +41,18 @@ class MainActivity : AppCompatActivity() {
     )
     private lateinit var binding: ActivityMainBinding
     var dishesList: MutableList<Item> = mutableListOf()
-    var menu_search_adapter = MenuRecyclerAdapter(dishesList, pref)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         pref = getSharedPreferences("TABLE", Context.MODE_PRIVATE)
         dishesList = pref?.getList<Item>("menu") as MutableList<Item>
+        var adress = pref?.getString("adress", "Выберите адрес доставки")
+        if (adress == "") {
+            adress = "Выберите адрес доставки"
+        }
+        val adressField = binding.adressField
+        adressField.hint = adress
         val tabLayout = binding.tabLayout
         val view_pager2: ViewPager2 = binding.mainPager
         isLogged = pref?.getBoolean("isLogged", false)!!
@@ -93,14 +98,14 @@ class MainActivity : AppCompatActivity() {
             view_pager2.visibility = View.VISIBLE
             searchBar.text.clear()
         }
-
+        var search_menu_adapter = MenuRecyclerAdapter(dishesList, pref)
         search_menu.layoutManager = GridLayoutManager(applicationContext, 2)
         search_menu.addItemDecoration(GridSpacingItemDecoration(2, 35, true, 0))
-        search_menu.adapter = menu_search_adapter
+        search_menu.adapter = search_menu_adapter
 
         searchBar.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                filterList(searchBar.text.toString())
+                search_menu_adapter.setFilteredList(filterList(searchBar.text.toString()))
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -131,24 +136,23 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val historyBtn = binding.mainCart
-        orderBtn.setOnClickListener {
-            val intent = Intent(this, OrderActivity::class.java)
+        val historyBtn = binding.mainHistory
+        historyBtn.setOnClickListener {
+            val intent = Intent(this, HistoryActivity::class.java)
             startActivity(intent)
         }
 
-        var adressField = binding.adressField
         adressField.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 SaveAdress(adressField.text.toString())
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-
+                SaveAdress(adressField.text.toString())
             }
 
             override fun afterTextChanged(p0: Editable?) {
-
+                SaveAdress(adressField.text.toString())
             }
 
         })
@@ -156,7 +160,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @SuppressLint("CheckResult")
-    fun filterList(text: String) {
+    fun filterList(text: String): MutableList<Item> {
         var filteredList: MutableList<Item> = mutableListOf()
         for (item: Item in dishesList) {
             if (item.nameDish.toLowerCase().contains(text.toLowerCase())){
@@ -172,12 +176,11 @@ class MainActivity : AppCompatActivity() {
                 if (filteredList.isEmpty()) {
                     Toast.makeText(applicationContext, "Ничего не найдено", Toast.LENGTH_SHORT).show()
                 }
-                else {
-                    menu_search_adapter.setFilteredList(filteredList)
-                }
             }, {
                 Toast.makeText(applicationContext, "Что-то пошло не так", Toast.LENGTH_SHORT).show()
             })
+
+        return filteredList
     }
 
     inline fun <reified T> SharedPreferences.getList(spListKey: String): MutableList<T> {

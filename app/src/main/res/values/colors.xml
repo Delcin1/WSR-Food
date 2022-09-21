@@ -17,4 +17,5 @@
     <color name="progress_bar">#FF240C</color>
     <color name="counter">#9A9A9D</color>
     <color name="extra_item_price">#C4C4C4</color>
+    <color name="history_item_bg">#D9D9D9   </color>
 </resources>

@@ -44,15 +44,6 @@ class MenuRecyclerAdapter(var items: MutableList<Item>, var pref: SharedPreferen
             SaveData(oneItem)
             val myIntent = Intent(holder.itemView.getContext(), OneItemActivity::class.java)
             holder.itemView.getContext().startActivity(myIntent)
-//            holder.selectedItem.visibility = View.VISIBLE
-//            holder.itemDish.visibility = View.GONE
-//            holder.dishIconCard.visibility = View.GONE
-//            holder.itemBackBtn.setOnClickListener {
-//                holder.selectedItem.visibility = View.GONE
-//                holder.itemDish.visibility = View.VISIBLE
-//                holder.dishIconCard.visibility = View.VISIBLE
-//            }
-//            println(holder.nameDish.text)
         }
     }
 
@@ -77,10 +68,6 @@ class MenuRecyclerAdapter(var items: MutableList<Item>, var pref: SharedPreferen
 }
 
 class MenuRecyclerVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//    val itemBackBtn: ImageButton = itemView.findViewById(R.id.item_back_btn)
-//    val selectedItem: MaterialCardView = itemView.findViewById(R.id.selected_item)
-//    val itemDish: MaterialCardView = itemView.findViewById(R.id.item)
-//    val dishIconCard: MaterialCardView = itemView.findViewById(R.id.dishIcon_card)
     val nameDish: TextView = itemView.findViewById(R.id.nameDish)
     val price: TextView = itemView.findViewById(R.id.price)
     val dishIcon: ImageView = itemView.findViewById(R.id.dishIcon)

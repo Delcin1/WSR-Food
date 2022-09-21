@@ -1,6 +1,7 @@
 package com.belkinapps.wsrfood.data.remote
 
 import com.belkinapps.wsrfood.data.requests.LoginRequest
+import com.belkinapps.wsrfood.data.requests.OrderRequest
 import com.belkinapps.wsrfood.data.requests.RegisterRequest
 import com.belkinapps.wsrfood.data.responses.Item
 import com.belkinapps.wsrfood.data.responses.TokenResponse
@@ -26,4 +27,10 @@ interface FoodApi {
 
     @GET("./dishes/version")
     fun sendVersionRequest(): Single<VersionResponse>
+
+    @POST("./order")
+    fun sendOrderRequest(@Body orderRequest: OrderRequest): Completable
+
+    @GET("./histories")
+    fun sendHistoryRequest(): Single<List<OrderRequest>>
 }

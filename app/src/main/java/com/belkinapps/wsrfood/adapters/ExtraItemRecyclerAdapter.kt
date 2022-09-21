@@ -17,7 +17,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.squareup.picasso.Picasso
 
-class ExtraItemRecyclerAdapter(var dishesList: MutableList<Item>, var pref: SharedPreferences?, var updOrderList: () -> Unit) : RecyclerView.Adapter<ExtraItemRecyclerVH>() {
+class ExtraItemRecyclerAdapter(val dishesList: MutableList<Item>, val pref: SharedPreferences?, val updOrderList: () -> Unit, val orderList: MutableList<DishesOrder>, val updItemCounter: () -> Unit) : RecyclerView.Adapter<ExtraItemRecyclerVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExtraItemRecyclerVH =
         ExtraItemRecyclerVH(LayoutInflater.from(parent.context).inflate(R.layout.extra_item, parent, false))
@@ -26,8 +26,23 @@ class ExtraItemRecyclerAdapter(var dishesList: MutableList<Item>, var pref: Shar
         holder.name.text = dishesList[position].nameDish
         holder.price.text = dishesList[position].price
         holder.icon.setOnClickListener {
-            pref?.addItemToList("DishesOrder", DishesOrder(dishesList[position].dishId, 1))
-            updOrderList.invoke()
+
+            var inOrder = false
+            notifyDataSetChanged()
+            for (item: DishesOrder in orderList) {
+                if (item.dishId == dishesList[position].dishId) {
+                    item.count += 1
+                    SaveData(orderList)
+                    updItemCounter.invoke()
+                    inOrder = true
+                }
+            }
+
+            if (!inOrder) {
+                pref?.addItemToList("DishesOrder", DishesOrder(dishesList[position].dishId, 1))
+                updOrderList.invoke()
+            }
+
         }
         Picasso.get()
             .load("https://food.madskill.ru/up/images/${dishesList[position].icon}")

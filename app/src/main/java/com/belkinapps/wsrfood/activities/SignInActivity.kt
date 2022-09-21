@@ -54,7 +54,8 @@ class SignInActivity : AppCompatActivity() {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({
                         isLogged = true
-                        SaveState(isLogged)
+                        SaveState(isLogged, it.token)
+                        (application as? App)?.configureRetrofit()
                         val intent = Intent(this, MainActivity::class.java)
                         startActivity(intent)
                     }, {
@@ -69,9 +70,10 @@ class SignInActivity : AppCompatActivity() {
 
     }
 
-    fun SaveState(state: Boolean) {
+    fun SaveState(state: Boolean, jwtToken: Int) {
         val editor = pref?.edit()
         editor?.putBoolean("isLogged", state)
+        editor?.putInt("jwtToken", jwtToken)
         editor?.apply()
     }
 

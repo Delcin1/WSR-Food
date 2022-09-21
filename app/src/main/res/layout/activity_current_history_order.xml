@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.CurrentHistoryOrderActivity">
+    tools:context=".activities.CurrentHistoryOrderActivity"
+    android:background="@color/gray_bg">
 
     <TextView
         android:id="@+id/currentHistory_header"
@@ -105,6 +106,7 @@
         app:layout_constraintTop_toBottomOf="@+id/currentHistory_adress" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/currentHistoryItems"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="35dp"

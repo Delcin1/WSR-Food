@@ -1,6 +1,8 @@
 package com.belkinapps.wsrfood
 
 import android.app.Application
+import android.content.Context
+import android.content.SharedPreferences
 import com.belkinapps.wsrfood.data.remote.FoodApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -11,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class App: Application() {
 
     lateinit var foodApi: FoodApi
-    val jwtToken = "delcin"
+    var pref: SharedPreferences? = null
 
     override fun onCreate() {
         super.onCreate()
@@ -19,9 +21,11 @@ class App: Application() {
         configureRetrofit()
     }
 
-    private fun configureRetrofit() {
+    fun configureRetrofit() {
         val httpLoggingInterceptor = HttpLoggingInterceptor()
         httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        pref = getSharedPreferences("TABLE", Context.MODE_PRIVATE)
+        val jwtToken = pref?.getInt("jwtToken", 0)!!
 
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor { chain ->  

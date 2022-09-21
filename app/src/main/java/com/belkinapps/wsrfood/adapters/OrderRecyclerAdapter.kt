@@ -18,18 +18,28 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.squareup.picasso.Picasso
 
-class OrderRecyclerAdapter (var dishesList: MutableList<Item>, var pref: SharedPreferences?) : RecyclerView.Adapter<OrderRecyclerVH>()  {
+class OrderRecyclerAdapter (var dishesList: MutableList<Item>, var pref: SharedPreferences?, var totalPrice: TextView) : RecyclerView.Adapter<OrderRecyclerVH>()  {
 
     var orderList: MutableList<DishesOrder> = pref?.getList<DishesOrder>("DishesOrder") as MutableList<DishesOrder>
-    val updOrderList = {orderList = pref?.getList<DishesOrder>("DishesOrder") as MutableList<DishesOrder>; notifyItemInserted(orderList.size-1)}
-
+    val updOrderList = {orderList = pref?.getList<DishesOrder>("DishesOrder") as MutableList<DishesOrder>; notifyItemInserted(orderList.size-1); updTotalPrice()}
+    val updItemCounter = {orderList = pref?.getList<DishesOrder>("DishesOrder") as MutableList<DishesOrder>; notifyDataSetChanged(); updTotalPrice()}
 //    @SuppressLint("NotifyDataSetChanged")
 //    fun updOrderList() {
 //        orderList = pref?.getList<DishesOrder>("DishesOrder") as MutableList<DishesOrder>
 //        notifyDataSetChanged()
 //    }
 
-
+    fun updTotalPrice() {
+        var orderPrice = 0
+        for (item: DishesOrder in orderList) {
+            for (dish: Item in dishesList) {
+                if (item.dishId == dish.dishId){
+                    orderPrice += item.count * dish.price.toInt()
+                }
+            }
+        }
+        totalPrice.text = orderPrice.toString()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderRecyclerVH =
         OrderRecyclerVH(LayoutInflater.from(parent.context).inflate(R.layout.order_items, parent, false))
@@ -59,6 +69,7 @@ class OrderRecyclerAdapter (var dishesList: MutableList<Item>, var pref: SharedP
                         orderList.removeAt(position)
                         orderList.add(position, DishesOrder(dishId, counter))
                         SaveData(orderList)
+                        updTotalPrice()
                     }
                     holder.plus_btn.setOnClickListener {
                         counter += 1
@@ -69,6 +80,7 @@ class OrderRecyclerAdapter (var dishesList: MutableList<Item>, var pref: SharedP
                         orderList.add(position, DishesOrder(dishId, counter))
                         SaveData(orderList)
                         println(orderList)
+                        updTotalPrice()
                     }
                 }
             }
@@ -84,7 +96,7 @@ class OrderRecyclerAdapter (var dishesList: MutableList<Item>, var pref: SharedP
                 holder.extraText.visibility = View.VISIBLE
                 holder.extraRecycler.visibility = View.VISIBLE
                 holder.extraRecycler.layoutManager = LinearLayoutManager(holder.itemView.getContext(), RecyclerView.HORIZONTAL, false)
-                holder.extraRecycler.adapter = ExtraItemRecyclerAdapter(dishesList, pref, updOrderList)
+                holder.extraRecycler.adapter = ExtraItemRecyclerAdapter(dishesList, pref, updOrderList, orderList, updItemCounter)
             }
 
             if (position != orderList.size+1) {
@@ -104,10 +116,11 @@ class OrderRecyclerAdapter (var dishesList: MutableList<Item>, var pref: SharedP
                     }
                 }
                 holder.extraRecycler.layoutManager = LinearLayoutManager(holder.itemView.getContext(), RecyclerView.HORIZONTAL, false)
-                holder.extraRecycler.adapter = ExtraItemRecyclerAdapter(sauces, pref, updOrderList)
+                holder.extraRecycler.adapter = ExtraItemRecyclerAdapter(sauces, pref, updOrderList, orderList, updItemCounter)
                 holder.extraText.text = "Соусы"
             }
         }
+        updTotalPrice()
     }
 
     override fun getItemCount(): Int {
